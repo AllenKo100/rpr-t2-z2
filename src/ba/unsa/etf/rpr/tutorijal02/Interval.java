@@ -142,12 +142,12 @@ public class Interval {
         String zagradaDruga="";
 
         if(this.isNull()) return "()";
-        if(this.pocetnaPripada) zagradaPrva="[";
-        if(this.krajnjaPripada) zagradaDruga="]";
-        if(this.pocetnaPripada==false) zagradaPrva="(";
-        if(this.krajnjaPripada==false) zagradaDruga=")";
+        if(this.isPocetnaPripada()) zagradaPrva="[";
+        if(!this.isPocetnaPripada()) zagradaPrva="(";
+        if(this.isKrajnjaPripada()) zagradaDruga="]";
+        if(!this.isKrajnjaPripada()) zagradaDruga=")";
 
-        return (zagradaPrva + pocetna + "," + krajnja + zagradaDruga);
+        return (zagradaPrva + this.getPocetna() + "," + this.getKrajnja() + zagradaDruga);
     }
 
     @Override
